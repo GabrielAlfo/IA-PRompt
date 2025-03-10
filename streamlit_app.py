@@ -37,9 +37,9 @@ def main():
     if choice == "Home":
         st.title("Tu asistente de cocina")
         # API key
-        api_key = st.secrets.get("API_KEY")
+        api_key = st.secrets.get("api_key")
         if not api_key:
-            st.error("La API key no está configurada. Configura la API_KEY en secrets.toml.")
+            st.error("La API key no está configurada. Configura la api_key en secrets.toml.")
             return
     elif choice == "Info":
         st.title("Información")
@@ -51,9 +51,9 @@ def main():
         </div>
         """, unsafe_allow_html=True)
         # API key
-        api_key = st.secrets.get("API_KEY")
+        api_key = st.secrets.get("api_key")
         if not api_key:
-            st.error("La API key no está configurada. Configura la API_KEY en secrets.toml.")
+            st.error("La API key no está configurada. Configura la api_key en secrets.toml.")
             return
 
     # Estilos CSS personalizados
