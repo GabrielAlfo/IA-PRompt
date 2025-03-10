@@ -2,6 +2,30 @@ import os
 from google import genai
 from google.genai import types
 import streamlit as st
+from fpdf import FPDF
+import base64
+
+st.title("Generador de Recetas")
+
+# Obtener la clave de API de secrets.toml
+try:
+    with open(".streamlit/secrets.toml", "r") as f:
+        secrets = f.read()
+        api_key = secrets.split('"')[1]
+except FileNotFoundError:
+    st.error("Error: El archivo .streamlit/secrets.toml no se encuentra.")
+    st.stop()
+except Exception as e:
+    st.error(f"Error al leer el archivo .streamlit/secrets.toml: {e}")
+    st.stop()
+
+# Widgets de entrada
+comensales = st.slider("Comensales", 1, 10, 4)
+ingredientes = st.text_input("Ingredientes disponibles", "pollo, tomate, lechuga")
+vegetariana = st.checkbox("Vegetariana")
+keto = st.checkbox("Keto")
+celiaco = st.checkbox("Celiaco")
+calorias = st.number_input("Calorías máximas", 100, 2000, 500)
 
 def generate(comensales, ingredientes, vegetariana, keto, celiaco, calorias, api_key):
     client = genai.Client(
@@ -37,6 +61,7 @@ def generate(comensales, ingredientes, vegetariana, keto, celiaco, calorias, api
     )
 
     receta = ""
+    pdf_href = None  # Inicializar pdf_href
     try:
         response_stream = client.models.generate_content_stream(
             model=model,
@@ -45,15 +70,38 @@ def generate(comensales, ingredientes, vegetariana, keto, celiaco, calorias, api
         )
         receta_builder = []
         for chunk in response_stream:
-            print(chunk.text, end="")
             receta_builder.append(chunk.text)
 
         receta = "".join(receta_builder)
-        return receta
-    except genai.APIError as e:
-        return f"Error de la API de Google: {e}"
+
+        # Generar PDF
+        import tempfile
+        import os
+
+        pdf = FPDF()
+        pdf.add_page()
+        pdf.set_font("Arial", size=12)
+        pdf.multi_cell(0, 10, receta)
+
+        # Guardar PDF en un archivo temporal en modo binario
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf", mode="wb") as tmp:
+            pdf.output(tmp.name)
+            tmp_path = tmp.name
+
+        # Leer el contenido del archivo temporal
+        with open(tmp_path, "rb") as f:
+            pdf_bytes = f.read()
+
+        # Eliminar el archivo temporal
+        os.remove(tmp_path)
+
+        pdf_base64 = base64.b64encode(pdf_bytes).decode('utf-8')
+        pdf_href = f'<a href="data:application/pdf;base64,{pdf_base64}" target="_blank">Descargar Receta en PDF</a>'
+
     except Exception as e:
-        return f"Error inesperado: {e}"
+        receta = f"Error: {e}"
+
+    return receta, pdf_href
 
 
 def _build_prompt(comensales, ingredientes, vegetariana, keto, celiaco, calorias):
@@ -67,19 +115,15 @@ def _build_prompt(comensales, ingredientes, vegetariana, keto, celiaco, calorias
     """
     return prompt
 
-
-if __name__ == "__main__":
-    # Ejemplo de uso
-    api_key = os.environ.get("GOOGLE_API_KEY")
-    if not api_key:
-        print("Error: La variable de entorno GOOGLE_API_KEY no está definida.")
-        exit()
-    comensales = 4
-    ingredientes = "pollo, tomate, lechuga"
-    vegetariana = False
-    keto = False
-    celiaco = False
-    calorias = 500
-
-    receta = generate(comensales, ingredientes, vegetariana, keto, celiaco, calorias, api_key)
-    print(receta)
+# Generar la receta al hacer clic en el botón
+if st.button("Generar Receta"):
+    try:
+        receta, pdf_href = generate(comensales, ingredientes, vegetariana, keto, celiaco, calorias, api_key)
+        st.write("## Receta:")
+        st.write(receta)
+        if pdf_href:
+            st.markdown(pdf_href, unsafe_allow_html=True)
+        else:
+            st.error("Error al generar el PDF.")
+    except Exception as e:
+        st.error(f"Error: {e}")
