@@ -1,7 +1,7 @@
 # Portada
 
-* Nombre del Estudiante: Gabriel Alfonzo
-* Título del Proyecto: Asistente de Cocina Inteligente con IA
+- Nombre del Estudiante: Gabriel Alfonzo
+- Título del Proyecto: Asistente de Cocina Inteligente con IA
 
 # Introducción
 
@@ -11,28 +11,28 @@ La inteligencia artificial está revolucionando múltiples aspectos de nuestra v
 
 Muchas personas enfrentan desafíos al cocinar, como:
 
-* Falta de inspiración para preparar comidas
-* Desperdicio de ingredientes
-* Dificultad para planificar menús equilibrados
-* Limitaciones en el conocimiento culinario
-* Falta de tiempo para planificar y cocinar
+- Falta de inspiración para preparar comidas
+- Desperdicio de ingredientes
+- Dificultad para planificar menús equilibrados
+- Limitaciones en el conocimiento culinario
+- Falta de tiempo para planificar y cocinar
 
 # Solución Propuesta
 
 Desarrollar un asistente de cocina basado en IA que:
 
-* Genere recetas personalizadas
-* Sugiera alternativas según ingredientes disponibles
-* Ofrezca consejos nutricionales
-* Adapte recetas a preferencias dietéticas
-* Proporcione instrucciones paso a paso
+- Genere recetas personalizadas
+- Sugiera alternativas según ingredientes disponibles
+- Ofrezca consejos nutricionales
+- Adapte recetas a preferencias dietéticas
+- Proporcione instrucciones paso a paso
 
 Relevancia:
 
-* Reduce el desperdicio de alimentos
-* Facilita la planificación de comidas
-* Mejora las habilidades culinarias
-* Ahorra tiempo en la preparación de alimentos
+- Reduce el desperdicio de alimentos
+- Facilita la planificación de comidas
+- Mejora las habilidades culinarias
+- Ahorra tiempo en la preparación de alimentos
 
 # Propuesta de Aplicación Web con IA
 
@@ -43,15 +43,15 @@ Asistente inteligente de cocina que genera recetas personalizadas y ofrece recom
 
 Integración de IA:
 
-* Análisis de ingredientes disponibles
-* Generación de recetas personalizadas
-* Sugerencias de variaciones y substituciones
-* Recomendaciones nutricionales
-* Guía paso a paso en la preparación
+- Análisis de ingredientes disponibles
+- Generación de recetas personalizadas
+- Sugerencias de variaciones y substituciones
+- Recomendaciones nutricionales
+- Guía paso a paso en la preparación
 
 # Link de Streamlit
 
-[Enlace a la aplicación en Streamlit]
+https://recetarios.streamlit.app/
 
 # Prompt Inicial
 
@@ -75,15 +75,15 @@ Eres un chef y quieres recomendar las mejores recetas de cocina para cualquier p
 
 Justificación del Prompt:
 
-* Abarca múltiples dimensiones de la experiencia culinaria
-* Permite flexibilidad y personalización
-* Integra conocimientos nutricionales y gastronómicos
+- Abarca múltiples dimensiones de la experiencia culinaria
+- Permite flexibilidad y personalización
+- Integra conocimientos nutricionales y gastronómicos
 
 Factibilidad Económica:
 
-* Uso de modelos de IA de código abierto
-* Costos de infraestructura en la nube moderados
-* Potencial de monetización mediante suscripciones premium
+- Uso de modelos de IA de código abierto
+- Costos de infraestructura en la nube moderados
+- Potencial de monetización mediante suscripciones premium
 
 # Conclusiones
 
@@ -91,7 +91,7 @@ El proyecto CocinaIA representa una solución innovadora que utiliza inteligenci
 
 Impacto Esperado:
 
-* Simplificar la experiencia culinaria
-* Reducir el desperdicio de alimentos
-* Fomentar la creatividad en la cocina
-* Mejorar la nutrición individual
+- Simplificar la experiencia culinaria
+- Reducir el desperdicio de alimentos
+- Fomentar la creatividad en la cocina
+- Mejorar la nutrición individual
