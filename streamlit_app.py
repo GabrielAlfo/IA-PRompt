@@ -1,3 +1,9 @@
+# Chef AI: Generador de Recetas Inteligente
+
+# Esta aplicación permite generar recetas de cocina personalizadas
+# basadas en tus preferencias alimentarias, ingredientes disponibles
+# y restricciones calóricas. ¡Crea deliciosas recetas con la ayuda de la IA!
+
 import streamlit as st
 from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
@@ -45,6 +51,12 @@ def generar_pdf(receta):
     return buffer
 
 def main():
+    st.markdown("""
+    <div style='text-align: center;'>
+        <h1>Generador de Recetas Inteligente</h1>
+        <p>Esta aplicación permite generar recetas de cocina personalizadas basadas en tus preferencias alimentarias, ingredientes disponibles y restricciones calóricas. ¡Crea deliciosas recetas con la ayuda de la IA!</p>
+    </div>
+    """, unsafe_allow_html=True)
     st.markdown("<h1 style='text-align: center;'>Chef AI</h1>", unsafe_allow_html=True)
 
     # API key
