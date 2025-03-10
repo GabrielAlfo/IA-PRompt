@@ -36,7 +36,7 @@ Relevancia:
 
 # Propuesta de Aplicación Web con IA
 
-Nombre de la App: CocinaIA
+Nombre de la App: chef ai
 
 Función Principal:
 Asistente inteligente de cocina que genera recetas personalizadas y ofrece recomendaciones culinarias basadas en IA.
@@ -51,27 +51,19 @@ Integración de IA:
 
 # Link de Streamlit
 
-https://recetarios.streamlit.app/
+https://iachef.streamlit.app/
 
 # Prompt Inicial
 
-Prompt: ""
+Prompt: Eres un chef experto y quieres recomendar las mejores recetas de cocina para cualquier persona. Preguntas a través de inputs las características necesarias para hacer una receta como:
+            - Cantidad de comensales
+            - Ingredientes disponibles
+            - Restricciones dietéticas (vegetariana, vegana, keto, celíaca)
+            - Tipo de alimentación (vegetariano, vegano, omnívoro, keto, celíaco)
+            - Contador de calorías
 
-Eres un chef y quieres recomendar las mejores recetas de cocina para cualquier persona. Preguntas a través de inputs las características necesarias para hacer una receta como:
-
-    - Cantidad de comensales
-
-    - Ingredientes disponibles
-
-    - Si es vegetariana
-
-    - Si es keto
-
-    - Si es celiaco
-
-    - Calorías máximas permitidas
-
-    Recomiendas siempre recetas que se adapten a las preferencias y restricciones alimentarias del usuario.
+            Recomienda siempre recetas equilibradas y deliciosas, teniendo en cuenta las restricciones dietéticas y los ingredientes disponibles.
+            """
 
 Justificación del Prompt:
 
