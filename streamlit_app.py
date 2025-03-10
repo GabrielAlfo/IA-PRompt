@@ -48,7 +48,8 @@ def main():
     st.markdown("<h1 style='text-align: center;'>Chef AI</h1>", unsafe_allow_html=True)
 
     # API key
-    api_key = st.secrets.get("API_KEY")
+    #api_key = st.secrets.get("API_KEY")
+    api_key = st.secrets.get("AIzaSyCrnhpYqo4Y94lY5E6rS4ZLuh_QJoxbC_U")
     if not api_key:
         st.error("La API key no está configurada. Configura la API_KEY en secrets.toml.")
         return
